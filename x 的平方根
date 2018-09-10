@@ -1,0 +1,44 @@
+import math as mt
+class Solution:
+    def mySqrt(self, x):
+        """
+        :type x: int
+        :rtype: int
+        """
+#         if x== 0:return 0
+#         if x==1:return 1
+        
+        
+        
+#         num = 0
+#         for num in range(x//2):
+#             num +=1
+#             if num*num <= x and (num*num+2*num+1)>x:
+#                 return num 
+            
+#超出时间限制，用二分查找
+
+#         if x==0:return 0
+#         if x==1:return 1
+        
+#         low = 0
+#         high = x 
+        
+#         while True:
+#             mid = (low+high)//2
+#             if mid**2 == x:
+#                 return mid
+#             if mid**2 <x and (mid+1)**2>x:
+#                 return mid
+#             elif mid**2<x:
+#                 low = mid
+#                 high = high
+#                 continue
+#             else:
+#                 low = low
+#                 high = mid
+#                 continue
+            
+#方法三
+        c = mt.sqrt(x)
+        return int(c)
