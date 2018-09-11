@@ -1,0 +1,17 @@
+class Solution:
+    def transpose(self, A):
+        """
+        :type A: List[List[int]]
+        :rtype: List[List[int]]
+        """
+        hang = len(A)
+        lie = len(A[0])
+        B = [[0 for col in range(hang)]for cow in range(lie)]
+        
+        # print(B)
+        
+        for line in range(len(A)):
+            for ele in range(len(A[line])):
+                B[ele][line]=A[line][ele]
+                             
+        return B
