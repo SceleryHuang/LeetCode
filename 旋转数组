@@ -1,0 +1,22 @@
+class Solution(object):
+    def rotate(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: void Do not return anything, modify nums in-place instead.
+        """
+        
+#         方法一
+#         i =0
+#         while i <k:
+#             a = nums.pop()
+#             nums.insert(0,a)
+#             i+=1
+            
+#   方法二:数组切片
+
+        l = len(nums)
+        nums[:] = nums[l-k:]+nums[:l-k]
+
+    
+            
