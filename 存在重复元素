@@ -1,0 +1,39 @@
+
+from collections import Counter
+class Solution(object):
+    def containsDuplicate(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: bool
+        """
+           
+#         方法一：超出时间限制
+#         ele= []
+        
+#         if nums==[]:
+#             return False
+        
+#         for i in nums:
+#             if i in ele:
+#                 return True
+#             else:
+#                 ele.append(i)
+#             if len(ele) == len(nums):
+#                 return False
+
+# 方法二
+        if nums==[]:
+            return False
+        dic = collections.Counter(nums)
+        for val in dic.values():
+            if val>=2:
+                return True
+        return False
+        
+
+    
+            
+
+                
+        
+        
