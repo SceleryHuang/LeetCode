@@ -1,0 +1,34 @@
+from collections import Counter
+
+class Solution(object):
+    def majorityElement(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+#    方法一     
+#         B = Counter(nums).most_common()
+        
+#         if B[0][1]>len(nums)/2:
+#             return B[0][0]
+        
+# 方法二        
+        nums.sort()
+        return nums[len(nums)/2]
+
+# 方法三
+
+        ele = {}
+        for i in nums:
+            if i not in ele:
+                ele[i] =1
+            else:
+                ele[1] +=1
+        for i in ele:
+            if ele[i]>len(nums)/2:
+                return i 
+            
+
+        
+
+                
