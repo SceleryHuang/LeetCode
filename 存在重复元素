@@ -22,16 +22,20 @@ class Solution(object):
 #                 return False
 
 # 方法二
-        if nums==[]:
-            return False
-        dic = collections.Counter(nums)
-        for val in dic.values():
-            if val>=2:
-                return True
-        return False
+        # if nums==[]:
+        #     return False
+        # dic = collections.Counter(nums)
+        # for val in dic.values():
+        #     if val>=2:
+        #         return True
+        # return False
         
 
+    # 方法三
     
+        if len(set(nums)) == len(nums):
+            return False
+        return True
             
 
                 
