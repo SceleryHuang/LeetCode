@@ -1,0 +1,13 @@
+class Solution(object):
+    def thirdMax(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """     
+        A = sorted(list(set(nums)))
+        print(A)
+        if len(A) < 3:
+            return max(A)
+        else:
+            A.reverse()
+            return A[2]
