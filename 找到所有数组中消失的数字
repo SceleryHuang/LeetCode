@@ -1,0 +1,30 @@
+class Solution:
+    def findDisappearedNumbers(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+        """方法一，超出时间限制"""
+#         if nums ==[]:
+#             return []
+        
+#         c = []
+#         d = []
+#         nums.sort()
+#         c = list(set(nums))
+#         for i in range(1,len(nums)+1):  
+#                 d.append(i)
+#         # print(d)
+#         return [i for i in d if i not in c]
+                
+
+        """方法二
+            思路：
+            因为时间复杂度为O(n),所以不能
+            因为空间复杂度为O(1),所以不能使用额外的数组或者其他的数据结构来存放，只能在原来的数组的基础上进行修改
+            在这里，如果第一个数字是4，我们把对应下标为3的那个数置为负数，一直循环到最后
+            最后循环遍历修改过的数组，如果对应下标这个数为负数说明数等于下标+1这个数出现过
+        """      
+        for item in nums:
+            nums[abs(item)-1] = -abs(nums[abs(item)-1])
+        return [i+1 for i,a_num in enumerate(nums) if a_num >0]
