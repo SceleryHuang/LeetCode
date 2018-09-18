@@ -1,3 +1,4 @@
+from collections import Counter
 class Solution:
     def findPairs(self, nums, k):
         """
@@ -5,15 +6,33 @@ class Solution:
         :type k: int
         :rtype: int
         """
+        if nums==[]:
+            return 0
+        c = collections.Counter(nums)
+        print(c)
         count = 0
         # for i in set(nums):          
         #     if i+k in nums:
         #         count +=1
         # return count
-        
-        for i in range(len(nums)-1):
-            for j in range(i,len(nums)-1):
-                if abs(nums[i]-nums[j]) == k:
-                    count +=1
+        if k < 0:
+            return 0
+        if k ==0:
+            for i in c.keys():
+                if c[i]>1:
+                    count += 1
+                return count
+        else:
+            for i in c.keys():
+                if i+k in c:
+                    count+=1
+            return count
                     
-        return count
+            
+            
+#         for i in range(len(nums)):
+#             for j in range(i+1,len(nums)):
+#                 if abs(nums[i]-nums[j]) == k:
+#                     count +=1
+                    
+#         return count
