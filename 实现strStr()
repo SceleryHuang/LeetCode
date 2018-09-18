@@ -1,0 +1,36 @@
+class Solution:
+    def strStr(self, haystack, needle):
+        """
+        :type haystack: str
+        :type needle: str
+        :rtype: int
+        """
+#        方法一
+        # if needle =="":
+        #     return 0
+        # if needle in haystack:
+        #     return haystack.find(needle)
+        # else:
+        #     return -1
+
+#         方法二：切片
+
+        # l = len(needle)
+        # for i in range(len(haystack)-l+1):
+        #     if haystack[i:i+l] == needle:
+        #         return i
+        # return -1
+#     方法三：自己寻找
+        l1 = len(needle)
+        l2 = len(haystack)
+        
+        if l2>=l1:
+            for i in range(l2-l1+1):
+                match = True
+                for j in range(l1):
+                    if haystack[i+j] != needle[j]:
+                        match = False
+                        break
+                if match:
+                    return i 
+        return -1
