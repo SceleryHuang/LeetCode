@@ -1,0 +1,39 @@
+import os
+class Solution:
+    def longestCommonPrefix(self, strs):
+        """
+        :type strs: List[str]
+        :rtype: str
+        """
+#         方法一
+        # l = len(strs)
+        # if not strs:
+        #     return ""
+        # if  l ==1:
+        #     return strs[0]
+        # minl = min([len(x) for x in strs])
+        # end = 0
+        # while end <minl:         
+        #     for i in range(1,l):
+        #         if strs[i][end] != strs[i-1][end]:
+        #             return strs[0][:end]
+        #     end +=1
+        # return strs[0][:end]
+        
+        
+        
+#        方法二：调库 
+        # return os.path.commonprefix(strs)
+
+# 方法三：大神装:看不懂
+# zip()函数用于将可迭代对象作为参数，将对象中对应的元素打包成一个个元组，然后返回由这些元组组成的列表
+
+        res = ""
+        if len(strs) == 0:
+            return ""
+        for each in zip(*strs):
+            if len(set(each)) == 1:
+                res +=each[0]
+            else:
+                return res
+        return res
