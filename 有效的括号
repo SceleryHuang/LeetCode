@@ -1,0 +1,26 @@
+class Solution:
+    def isValid(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        
+        if len(s)%2 == 1:
+            return False
+        if s =="":
+            return True      
+            
+        d = {'(':')','{':'}','[':']'}
+
+        stack = []
+        for i in s:
+            if i in d:
+                stack.append(i)
+            else:
+                if not stack or d[stack.pop()] != i:
+                    return False
+        return len(stack) ==0
+                
+            
+                
+            
