@@ -1,0 +1,27 @@
+class Solution:
+    def lengthOfLastWord(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        
+        
+#         方法一
+        # if s == "":
+        #     return 0
+        # c = s.split()
+        # if c ==[]:
+        #     return 0
+        # else:
+        #     return len(c[-1])
+        
+#         方法二
+        str1 = ''
+        count = 0
+        for i in s[::-1]:
+            if str1 != '' and i == " ":
+                return count
+            if i !=' ':
+                count+=1
+                str1 = str1+i
+        return count
