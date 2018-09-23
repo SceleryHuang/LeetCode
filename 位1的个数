@@ -1,0 +1,19 @@
+class Solution(object):
+    def hammingWeight(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+#         方法一
+        # s = bin(n)
+        # c = str(s)[2:]
+        # print(c)
+        # count = 0
+        # for i in c:
+        #     if i == '1':
+        #         count +=1
+        # return count
+       
+ # 方法二
+        return bin(n).count('1')
+
