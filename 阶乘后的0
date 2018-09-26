@@ -1,0 +1,17 @@
+
+class Solution:
+    def trailingZeroes(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+# 不满足要求,超出时间限制
+        # fac = math.factorial(n)
+        
+# 10只可能由 2*5得到，因此只要找一共有多少个5就可以了
+# 如25的阶乘中因此包含5的数字：5(1*5),10(2*5),15(3*5),20(4*5),25(5*5),一共出现6个5，而显然因子2的出现次数远远超过6，即尾数0的个数为6 
+        res = 0
+        while n>0:
+            res+= n//5
+            n//=5
+        return res
