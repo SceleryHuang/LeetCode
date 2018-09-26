@@ -1,0 +1,34 @@
+from collections import Counter
+class Solution:
+    def singleNumber(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+#         方法0
+        cou = dict(Counter(nums))
+        nums_list = cou.keys()
+        for i in nums_list:
+            if cou[i] == 1:
+                return i
+        
+#        方法一：超出时间限制
+        # for i in nums:
+        #     if nums.count(i) ==1:
+        #         return i
+            
+#         方法二
+        # s = {}
+        # for i in nums:
+        #     if i in s.keys():
+        #         s.pop(i)
+        #     else:
+        #         s[i] = 1
+        # return list(s.keys())[0]
+        
+#        方法三：高级用法异或^ 
+# 0异或任何数不变，任何数与自己异或为0。a⊕b⊕a=b。异或满足加法结合律和交换律。
+        # res =0
+        # for i in nums:
+        #     res^= i
+        # return res
