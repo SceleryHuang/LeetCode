@@ -1,0 +1,56 @@
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def maxDepth(self, root):
+        """
+        :type root: TreeNode
+        :rtype: int
+        """
+        
+        
+#        方法2： 要求树的深度，可以用层次遍历二叉树，每遍历完一层，则加1
+# list A为当前层的结点，遍历A中的每个节点，然后用temp一一保存当前每个节点可能有的左结点和右结点。
+        if not root:
+            return 0
+        A = []
+        d = 0
+        A.append(root)
+        while A:
+            temp = []
+            for node in A:
+                if node.left:
+                    temp.append(node.left)
+                if node.right:
+                    temp.append(node.right)
+            A = temp
+            d+=1
+        return d
+
+
+
+# 方法一：递归
+#         if root == None:
+#             return 0
+#         l = self.maxDepth(root.left)+1
+#         r = self.maxDepth(root.right)+1
+#         return max(l,r)
+    
+  
+         
+        count = 0
+        maxc = 0
+        lst = []
+        lst.append(root)
+        while len(lst)>0:
+            node = lst.pop()
+            if node.left:
+                lst.append(node.left)
+            if node.right:
+                lst.append(node.right)
+                
+    
