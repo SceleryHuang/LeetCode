@@ -1,0 +1,21 @@
+class Solution:
+    def addDigits(self, num):
+        """
+        :type num: int
+        :rtype: int
+        """
+#         方法一
+        # if num<10:
+        #     return num
+        # while num>=10:
+        #     s = str(num)
+        #     print(num)
+        #     sumq = 0
+        #     for i in s:
+        #         print(i)
+        #         sumq += int(i)
+        #         num = sumq
+        # return num
+        
+        # 方法二：
+        return num and(num%9 or 9)
