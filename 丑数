@@ -1,0 +1,49 @@
+import math
+class Solution:
+    def isUgly(self, num):
+        """
+        :type num: int
+        :rtype: bool
+        """
+######################方法一：太长
+#         if num == 1:
+#             return True
+#         if num <= 0:
+#             return False      
+#         a = 2
+#         l = []
+#         if num == a:
+#             return True
+# # 超出时间限制     
+#         # for i in range(2,num):
+#         #     while True:
+#         #         if num%i ==0:
+#         #             l.append(i)
+#         #             num = num/i
+#         #         else:
+#         #             break
+#         def f(num):
+#             for i in range(2,int(math.sqrt(num+1))+1):
+#                 if num%i == 0:
+#                     l.append(i)
+#                     return f(num/i)
+#             l.append(int(num))       
+#         f(num)
+#         print(l)
+#         for k in l:
+#             if k == 2 or k == 3 or k ==5:
+#                 pass
+#             else:
+#                 return False
+#         return True
+        
+######################方法二：
+        if num <=0:
+            return False
+        for o in [2,3,5]:
+            while num%o == 0:
+                num = num/o
+        if num == 1:
+            return True
+        else:
+            return False
