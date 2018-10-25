@@ -1,0 +1,30 @@
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def isBalanced(self, root):
+        """
+        :type root: TreeNode
+        :rtype: bool
+        """
+        def getDepth(groot):
+            if groot == None:
+                return 0
+            ldepth = getDepth(groot.left)
+            rdepth = getDepth(groot.right)
+            return max(ldepth,rdepth)+1 
+        
+
+        if root == None:
+            return True
+        ldepth = getDepth(root.left)
+        rdepth = getDepth(root.right)
+        if abs(ldepth-rdepth)>1:
+            return False
+        return self.isBalanced(root.left) and self.isBalanced(root.right)   
+            
+        
