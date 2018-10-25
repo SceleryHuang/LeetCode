@@ -1,0 +1,33 @@
+class Solution:
+    def isHappy(self, n):
+        """
+        :type n: int
+        :rtype: bool
+        """
+        
+        if n == 1:
+            return True
+            
+            
+        while n!= 1 and n !=4:
+            a = str(n)
+            sum1 = 0
+            for i in a:
+                sum1 +=int(i)**2
+            if sum1 == 1:
+                return True
+            n = sum1
+        return False
+                
+                
+                
+#             sumq.append(sum1)       
+#             print(sumq)
+#             if sumq[-1] == 1:
+#                     return True 
+#             if sumq[-1] == sumq[-2]:
+#                     return False
+            
+#             print(n)
+#         return False    
+        
