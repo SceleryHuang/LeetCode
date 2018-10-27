@@ -1,0 +1,20 @@
+class Solution:
+    def reverseVowels(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        b = []
+        yuanyin = ['a','e','i','o','u','A','E','I','O','U']
+        for i in s:
+            if i in yuanyin:
+                b.append(i)
+
+        k = len(b)
+        s = list(s)
+        for j in range(len(s)):
+            if s[j] in yuanyin:
+                s[j] = b[k-1]
+                k-= 1
+                
+        return ''.join(s)
