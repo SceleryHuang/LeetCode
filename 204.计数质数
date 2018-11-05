@@ -1,0 +1,41 @@
+class Solution(object):
+    def countPrimes(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+#         方法一：依次遍历，
+#         def isPrimes(num):
+#             if num <=1:
+#                 return False
+#             if num ==  2:
+#                 return True
+#             for i in range(2,int(math.sqrt(num))+1):
+#                 if num % i == 0:
+#                     return False
+#             return True
+        
+#      #   print(isPrimes(5))
+        
+        
+#         count = 0
+#         for i in range(1,n):
+#            # print(i)
+#             if isPrimes(i):
+#                 count +=1
+#         return count
+
+# 思路四: Sieve of Eratosthenes(埃拉托色尼筛法，简称埃氏筛法)，参考维基百科：https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
+        # fasle 表示不是素数, true 代表素数. 所以总和是多少,最后就有多少个.
+
+
+        # 注意审题边界条件,是小于n,不包括n
+        if n < 2:
+            return 0     # 注意 数组越界的情况
+
+        primes = [True] * n
+        primes[0] = primes[1] = False
+        for i in range(2, int(n**0.5)+1):    # 在选择除数时候的一个小技巧.大于一半的数是不可能做除数的. 事实证明, 能够节省400ms的时间
+            if primes[i]:
+                primes[i * i: n: i] = [False] * len(primes[i * i: n: i])  # 非常简洁的语句, 从小到大用埃氏筛法, 将每一个不是宿舍的数筛选掉.大大减少出发的数量.
+        return sum(primes)
