@@ -1,0 +1,22 @@
+/**
+ * @param {number[]} A
+ * @return {number[]}
+ */
+var sortArrayByParityII = function(A) {
+    var len = A.length;
+    var i = 0;
+    var j = 1;
+    var result = [];
+    for(var a = 0;a<len;a++){
+        // console.log(A[a]);
+        if((A[a]&1) == 0){
+            result[i] = A[a];
+            i+=2;
+        }
+        else{
+            result[j] = A[a]
+            j+=2
+        }
+    }
+    return result
+};
