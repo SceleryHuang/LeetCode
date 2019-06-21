@@ -1,0 +1,22 @@
+/**
+ * @param {string} str
+ * @return {string}
+ */
+var toLowerCase = function(str) {
+    var a = new Array();
+    var s = "";
+    for(var i= 0;i<str.length;i++){
+        if(str[i].charCodeAt() > 64 && str[i].charCodeAt() < 91){
+            a.push(String.fromCharCode(str[i].charCodeAt()+32));
+        }
+        else{
+            a.push(String.fromCharCode(str[i].charCodeAt())); 
+        }
+    
+    }
+    for(var j = 0;j<a.length;j++){
+        s +=a[j];
+        console.log(a[j]);
+    }
+    return s;
+};
