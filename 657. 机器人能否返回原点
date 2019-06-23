@@ -1,0 +1,28 @@
+/**
+ * @param {string} moves
+ * @return {boolean}
+ */
+var judgeCircle = function(moves) {
+    var v = 0;
+    var h = 0;
+    for(var i = 0;i<moves.length;i++){
+        switch(moves[i]){
+            case 'U':
+                ++v
+                break
+            case 'D':
+                --v
+                break
+            case 'R':
+                ++h
+                break
+            case 'L':
+                --h
+                break
+        }
+    }
+    if(v === 0 && h == 0){
+       return true 
+    }
+    return false
+};
