@@ -1,0 +1,37 @@
+/**
+ * @param {number} N
+ * @return {number}
+ */
+function isGoodNum(n){
+    var sn = n.toString();
+    var diff = false;
+    var val = true;
+    for(var j of sn){
+        switch(j){
+            case '2':
+            case '5':
+            case '6':
+            case '9':
+                diff = true;
+                break;
+            case '3':
+            case '4':
+            case '7':
+                val = false;
+                break;
+            default:break;
+                
+        }
+    }
+    if(diff && val) return true;
+    return false;
+}   
+var rotatedDigits = function(N) {
+    var count = 0;
+    for(var i = 1;i<N+1;i++){
+        if(isGoodNum(i)){
+            count+=1;
+        }
+    }
+    return count;
+};
