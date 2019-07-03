@@ -1,0 +1,33 @@
+/**
+ * @param {string} S
+ * @return {string}
+ */
+var reverseOnlyLetters = function(S) {
+    let left = 0;
+    let right = S.length-1;
+    const charArr = S.split('');
+    console.log(charArr);
+    while(left<right){
+        while(!(/[a-zA-Z]/).test(charArr[left])){
+            left++;
+        }
+        while(!(/[a-zA-Z]/).test(charArr[right])){
+            right--;
+        }
+        if(left<right){
+            [charArr[left],charArr[right]] =  [charArr[right],charArr[left]];
+        }
+        left ++;
+        right--;
+    }
+    return charArr.join('')
+};
+
+// var reverseOnlyLetters = function(S) {
+//     const reverseS = S.split('').filter(item => /[A-Za-z]/.test(item)).reverse();
+//     let index = 0;
+    
+//     return Array.from(S)
+//         .map(item => /[A-Za-z]/.test(item) ? reverseS[index++] : item)
+//         .join('');
+// };
