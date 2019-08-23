@@ -1,0 +1,129 @@
+function GetLeastNumbers_Solution(input, k)
+{
+    // write code here
+    if(input == [] || k>input.length){
+        return [];
+    }
+//    input = sortab(input);
+//    input = bubbleSort(input);
+//    input = selectionSort(input);
+    mergeSort(input,0,(input.length-1));
+    return input.slice(0,k);
+}
+
+/**
+function sortab(arr){
+    return arr.sort(function(a,b){
+        return a-b;
+    })
+}
+//冒泡排序 比较任何两个相邻的项，如果第一个比第二个大，则交换它们。元素项向上移动至正确的顺序，就好像气泡升至表面一样，冒泡排序因此得名。
+function bubbleSort(arr){
+    let temp = null;
+    for(let i = 0;i<arr.length;i++){
+        for(let j = 0;j<arr.length-i;j++){
+            if(arr[j]>arr[j+1]){
+                temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp;
+            }
+        }
+    }
+    return arr;
+}
+
+// 选择排序大致的思路是找到数据结构中的最小值并将其放置在第一位，接着找到第二小的值并将其放在第二位，以此类推。
+function selectionSort(arr){
+    let len = arr.length;
+    let minIndex,temp;
+    for(let i = 0;i<len-1;i++){
+        minIndex = i;
+        
+        for(let j = i+1;j<len;j++){
+            if(arr[j]<arr[minIndex]){
+                minIndex = j;
+            }
+        }
+        
+        temp = arr[i];
+        arr[i] = arr[minIndex];
+        arr[minIndex] = temp;
+    }
+    return arr;
+}
+//归并排序 递归实现
+
+
+function mergeSort1(arr){
+    let len = arr.length;
+    if(len === 1){
+        return arr;
+    }
+    let mid = Math.floor(len/2);
+    var left = arr.slice(0,mid),
+        right = arr.slice(mid);
+    return merge(mergeSort(left),mergeSort(right));
+}
+
+function merge1(left,right){
+    var res = [];
+    while(left.length && right.length){
+        if(left[0]<=right[0]){
+            res.push(left.shift());
+        }else{
+            res.push(right.shift());
+        }
+    }
+    while(left.length){
+        res.push(left.shift());
+    }
+    while(right.length){
+        res.push(right.shift());
+    }
+    return res;
+}
+
+***/
+function mergeSort(arr, left, right) {
+    if (right > left) {
+        var mid = Math.floor((left + right)/2);
+        mergeSort(arr, left, mid);
+        mergeSort(arr, mid+1, right);
+        merge(arr, left, mid, right);
+    }
+}
+
+function merge(arr, left, mid, right){
+    var res = [];
+    var i = left,
+        j = mid+1;
+    while(i<=mid && j<=right){
+        if(arr[i]<=arr[j]){
+            res.push(arr[i]);
+            i++;
+        }
+        else{
+            res.push(arr[j]);
+            j++;
+        }
+    }
+    while(i<=mid){
+        res.push(arr[i]);
+        i++;
+    }
+    while(j<=right){
+        res.push(arr[j]);
+        j++;
+    }
+    for(let i = 0;i<res.length;i++){
+        arr[left+i] = res[i];
+    }
+}
+
+
+
+
+
+
+
+
